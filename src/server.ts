@@ -8,7 +8,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 import { AuthenticationRouter } from "./routers/authentication";
-app.use('/Authentication/', AuthenticationRouter)
+app.use('/authentication/', AuthenticationRouter)
+
+import { TaskRouter } from "./routers/task";
+app.use('/task/', TaskRouter)
 
 
 app.listen(PORT, () => {

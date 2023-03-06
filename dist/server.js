@@ -10,7 +10,9 @@ const PORT = process.env.PORT || 3000;
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
 const authentication_1 = require("./routers/authentication");
-app.use('/Authentication/', authentication_1.AuthenticationRouter);
+app.use('/authentication/', authentication_1.AuthenticationRouter);
+const task_1 = require("./routers/task");
+app.use('/task/', task_1.TaskRouter);
 app.listen(PORT, () => {
     console.log(` server running at http://localhost:${PORT}/`);
 });

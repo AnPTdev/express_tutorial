@@ -6,6 +6,7 @@ const mongoose_1 = require("mongoose");
 const accountSchema = new mongoose_1.Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
+    role: { type: String, required: true }
 }, {
     collection: 'account'
 });

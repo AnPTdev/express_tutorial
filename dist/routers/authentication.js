@@ -11,7 +11,6 @@ const path_1 = __importDefault(require("path"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const AuthenticationRouter = (0, express_1.Router)();
 exports.AuthenticationRouter = AuthenticationRouter;
-const SECRET = 'secret';
 AuthenticationRouter.use((0, cookie_parser_1.default)());
 AuthenticationRouter.get('/', (req, res, next) => {
     res.sendFile(path_1.default.join(__dirname, 'login.html'));
@@ -27,7 +26,7 @@ AuthenticationRouter.post('/', (req, res, next) => {
     })
         .then(data => {
         if (data) {
-            let token = jsonwebtoken_1.default.sign({ _id: data._id }, SECRET);
+            let token = jsonwebtoken_1.default.sign({ _id: data._id }, 'mk');
             return res.json({
                 message: "sucess",
                 token: token,
@@ -41,7 +40,7 @@ AuthenticationRouter.post('/', (req, res, next) => {
 });
 AuthenticationRouter.get('/private/', (req, res, next) => {
     var token = req.cookies.token;
-    jsonwebtoken_1.default.verify(token, SECRET, function (err, decoded) {
+    jsonwebtoken_1.default.verify(token, 'mk', function (err, decoded) {
         if (err)
             return res.redirect('/Authentication');
         return next();

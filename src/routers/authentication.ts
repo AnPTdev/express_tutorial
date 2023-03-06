@@ -6,7 +6,6 @@ import path from 'path';
 import jwt from 'jsonwebtoken';
 
 const AuthenticationRouter = Router();
-const SECRET: string = 'secret'
 
 AuthenticationRouter.use(cookieParser())
 
@@ -27,7 +26,7 @@ AuthenticationRouter.post('/', (req: Request, res: Response, next: NextFunction)
         })
         .then(data => {
             if (data) {
-                let token: string = jwt.sign({ _id: data._id }, SECRET)
+                let token: string = jwt.sign({ _id: data._id }, 'mk')
                 return res.json({
                     message: "sucess",
                     token: token,
@@ -43,10 +42,10 @@ AuthenticationRouter.post('/', (req: Request, res: Response, next: NextFunction)
 AuthenticationRouter.get('/private/',
     (req: Request, res: Response, next: NextFunction) => {
         var token: string = req.cookies.token
-        jwt.verify(token, SECRET, function (err, decoded) {
+        jwt.verify(token, 'mk', function (err, decoded) {
             if (err) return res.redirect('/Authentication')
             return next()
-        })          
+        })
     },
     (req: Request, res: Response, next: NextFunction) => { res.json('welcome') },
 )
