@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-import { AuthenticationRouter } from "./routers/authentication";
-app.use('/authentication/', AuthenticationRouter)
+import { AuthenticateRouter } from "./routers/authenticate";
+app.use('/authenticate/', AuthenticateRouter)
 
 import { TaskRouter } from "./routers/task";
 app.use('/task/', TaskRouter)

@@ -9,8 +9,8 @@ const body_parser_1 = __importDefault(require("body-parser"));
 const PORT = process.env.PORT || 3000;
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(body_parser_1.default.json());
-const authentication_1 = require("./routers/authentication");
-app.use('/authentication/', authentication_1.AuthenticationRouter);
+const authenticate_1 = require("./routers/authenticate");
+app.use('/authenticate/', authenticate_1.AuthenticateRouter);
 const task_1 = require("./routers/task");
 app.use('/task/', task_1.TaskRouter);
 app.listen(PORT, () => {
