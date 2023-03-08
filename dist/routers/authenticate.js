@@ -85,4 +85,7 @@ AuthenticateRouter.get('/private/', (req, res, next) => {
         return next();
     });
 }, (req, res, next) => { res.json('welcome'); });
+AuthenticateRouter.get('/signout', (req, res, next) => {
+    res.json("SIGN OUT");
+});
 //# sourceMappingURL=authenticate.js.map
