@@ -94,4 +94,9 @@ AuthenticateRouter.get('/private/',
     (req: Request, res: Response, next: NextFunction) => { res.json('welcome') },
 )
 
+
+AuthenticateRouter.get('/signout', (req: Request, res: Response, next: NextFunction) => {
+    res.json("SIGN OUT")
+})
+
 export { AuthenticateRouter }
