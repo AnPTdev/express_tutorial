@@ -2,8 +2,7 @@ import { Router, Request, Response, NextFunction } from 'express';
 import { AccountModel } from '../models/account';
 
 import cookieParser from 'cookie-parser';
-import path from 'path';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 const AuthenticateRouter = Router();
 
